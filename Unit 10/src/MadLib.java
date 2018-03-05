@@ -1,0 +1,130 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  - 
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+import static java.lang.System.*;
+
+public class MadLib
+{
+	private ArrayList<String> verbs;
+	private ArrayList<String> nouns;
+	private ArrayList<String> adjectives;
+	
+	public MadLib()
+	{
+		verbs = new ArrayList<String>();
+		nouns = new ArrayList<String>();
+		adjectives = new ArrayList<String>();
+
+	}
+
+	public MadLib(String fileName)
+	{
+		//load stuff
+		this();//will find default constructor
+		loadNouns();
+		loadAdjectives();
+		loadVerbs();
+		
+		try{
+			Scanner file = new Scanner(new File(fileName));
+		while(file.hasNext())
+		{
+			String symbol = file.next();
+			if(symbol.equals("#"))
+			{
+				out.print(getRandomNoun());
+			}
+			if (symbol.equals("@"))
+			{
+				out.print(getRandomVerb());
+			}
+			if(symbol.equals("&"))
+			{
+				out.print(getRandomAdjective());
+			}
+		}
+		
+		}
+		catch(Exception e)
+		{
+			out.println("Houston we have a problem!");
+		}
+		
+	}
+
+	public void loadNouns()
+	{
+		try{
+		Scanner file = new Scanner(new File("C:\\Users\\burns6389\\Documents\\GitHub\\APCSA-V2\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\nouns.dat"));
+		while(file.hasNextLine())
+		{
+			nouns.add(file.nextLine());
+		}
+		}
+		catch(Exception e)
+		{
+		}	
+		
+	}
+	
+	public void loadVerbs()
+	{
+		try{
+			Scanner file = new Scanner(new File ("C:\\Users\\burns6389\\Documents\\GitHub\\APCSA-V2\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\verbs.dat"));
+			while(file.hasNextLine())
+			{
+				nouns.add(file.nextLine());
+			}
+	
+		}
+		catch(Exception e)
+		{
+		}
+	}
+
+	public void loadAdjectives()
+	{
+		try{
+			Scanner file = new Scanner(new File ("C:\\Users\\burns6389\\Documents\\GitHub\\APCSA-V2\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\adjectives.dat"));
+			while(file.hasNextLine())
+			{
+				nouns.add(file.nextLine());
+			}
+		}
+		catch(Exception e)
+		{
+		}
+	}
+
+	public String getRandomVerb()
+	{
+		String random = (String)verbs.get((int)Math.random()*(verbs.size()));
+		return random;
+	}
+	
+	public String getRandomNoun()
+	{
+		String random = (String)nouns.get((int)Math.random()*(nouns.size()));
+		return random;
+	}
+	
+	public String getRandomAdjective()
+	{
+		String random = (String)adjectives.get((int)Math.random()*(adjectives.size()));
+		return random;
+	}		
+
+	public String toString()
+	{
+	   return "\n\n\n";
+	}
+}
