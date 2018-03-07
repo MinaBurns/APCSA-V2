@@ -11,7 +11,7 @@ public class Lab16d
 	public static void main( String args[] )
 	{
 		//make a new MadLib
-		MadLib prog = new MadLib("C:\\Users\\burns6389\\Documents\\GitHub\\APCSA-V2\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\story.dat");
+		MadLib prog = new MadLib("C:\\Users\\burnsc6389\\Documents\\GitHub\\APCSA-V2\\Unit 10\\src\\story.dat");
 		
 		out.println("\n");
 	}

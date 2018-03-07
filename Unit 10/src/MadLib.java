@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+
 //Name -
 //Date -
 //Class -
@@ -28,8 +28,8 @@ public class MadLib
 
 	public MadLib(String fileName)
 	{
-		//load stuff
 		this();//will find default constructor
+		
 		loadNouns();
 		loadAdjectives();
 		loadVerbs();
@@ -41,15 +41,19 @@ public class MadLib
 			String symbol = file.next();
 			if(symbol.equals("#"))
 			{
-				out.print(getRandomNoun());
+				out.print(getRandomNoun() + " ");
 			}
-			if (symbol.equals("@"))
+			else if (symbol.equals("@"))
 			{
-				out.print(getRandomVerb());
+				out.print(getRandomVerb() + " ");
 			}
-			if(symbol.equals("&"))
+			else if(symbol.equals("&"))
 			{
-				out.print(getRandomAdjective());
+				out.print(getRandomAdjective() + " ");
+			}
+			else
+			{
+				out.print(symbol + " ");
 			}
 		}
 		
@@ -64,7 +68,7 @@ public class MadLib
 	public void loadNouns()
 	{
 		try{
-		Scanner file = new Scanner(new File("C:\\Users\\burns6389\\Documents\\GitHub\\APCSA-V2\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\nouns.dat"));
+		Scanner file = new Scanner(new File("C:\\Users\\burnsc6389\\Documents\\GitHub\\APCSA-V2\\Unit 10\\src\\nouns.dat"));
 		while(file.hasNextLine())
 		{
 			nouns.add(file.nextLine());
@@ -72,6 +76,7 @@ public class MadLib
 		}
 		catch(Exception e)
 		{
+			out.println("Houston we have a problem!loadNouns");
 		}	
 		
 	}
@@ -79,47 +84,49 @@ public class MadLib
 	public void loadVerbs()
 	{
 		try{
-			Scanner file = new Scanner(new File ("C:\\Users\\burns6389\\Documents\\GitHub\\APCSA-V2\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\verbs.dat"));
+			Scanner file = new Scanner(new File ("C:\\Users\\burnsc6389\\Documents\\GitHub\\APCSA-V2\\Unit 10\\src\\verbs.dat"));
 			while(file.hasNextLine())
 			{
-				nouns.add(file.nextLine());
+				verbs.add(file.nextLine());
 			}
 	
 		}
 		catch(Exception e)
 		{
+			out.println("Houston we have a problem!loadVerbs");
 		}
 	}
 
 	public void loadAdjectives()
 	{
 		try{
-			Scanner file = new Scanner(new File ("C:\\Users\\burns6389\\Documents\\GitHub\\APCSA-V2\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16d\\adjectives.dat"));
+			Scanner file = new Scanner(new File ("C:\\Users\\burnsc6389\\Documents\\GitHub\\APCSA-V2\\Unit 10\\src\\adjectives.dat"));
 			while(file.hasNextLine())
 			{
-				nouns.add(file.nextLine());
+				adjectives.add(file.nextLine());
 			}
 		}
 		catch(Exception e)
 		{
+			out.println("Houston we have a problem!loadAdj");
 		}
 	}
 
 	public String getRandomVerb()
 	{
-		String random = (String)verbs.get((int)Math.random()*(verbs.size()));
+		String random = (String)verbs.get((int)(Math.random()*(verbs.size())));
 		return random;
 	}
 	
 	public String getRandomNoun()
 	{
-		String random = (String)nouns.get((int)Math.random()*(nouns.size()));
+		String random = (String)nouns.get((int)(Math.random()*(nouns.size())));
 		return random;
 	}
 	
 	public String getRandomAdjective()
 	{
-		String random = (String)adjectives.get((int)Math.random()*(adjectives.size()));
+		String random = (String)adjectives.get((int)(Math.random()*(adjectives.size())));
 		return random;
 	}		
 

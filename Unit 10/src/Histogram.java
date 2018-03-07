@@ -19,7 +19,9 @@ public class Histogram
 
 	public Histogram()
 	{
-
+		count = new ArrayList<Integer>();
+		letters = new ArrayList<Character>();
+		
 
 
 
@@ -27,12 +29,13 @@ public class Histogram
 
 	public Histogram(char[] values, String fName)
 	{
-
-
-
-
-
-
+		fileName = fName;
+		letters = values;
+		
+		
+		
+		
+		
 		out.println("search letters = "+letters);
 	}
 

@@ -80,9 +80,9 @@ public class Deck {
 			int howMany = k+1;
 			int start = 0;
 			int randPos = (int) (Math.random() * howMany) + start;
-			Card temp = cards.set(k, temp);
-			cards.get(k) = cards.get(Math.random()*cards.size());
-			cards[randPos] = temp;
+			Card temp = cards.get(k);
+			cards.set(k,cards.get(randPos));
+			cards.set(randPos, temp);
 			size = cards.size();
 		}
 	}
@@ -96,7 +96,7 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		if (isEmpty() == true) return null;
 		size--;
-		Card returned = cards[size];
+		Card returned = cards.get(size);
 		return returned;
 	}
 
@@ -109,7 +109,7 @@ public class Deck {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards[k];
+			rtn = rtn + cards.get(k);
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -121,7 +121,7 @@ public class Deck {
 
 		rtn = rtn + "\nDealt cards: \n";
 		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards[k];
+			rtn = rtn + cards.get(k);
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
