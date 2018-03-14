@@ -24,7 +24,6 @@ public class GradeBookRunner
 		{
 			out.println("What is the name of this class?");
 			String name = keyboard.nextLine();
-			out.println ("hello");
 			out.println("How many students are in this class?");
 			int numStudents = keyboard.nextInt();
 			keyboard.nextLine();
