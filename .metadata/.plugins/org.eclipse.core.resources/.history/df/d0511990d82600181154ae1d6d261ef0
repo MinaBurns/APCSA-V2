@@ -1,0 +1,35 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import java.util.Arrays;
+import java.util.Scanner;
+import static java.lang.System.*;
+import static java.util.Arrays.*;
+import java.io.File;
+
+public class GradeBookFileRunner
+{
+   public static void main( String args[] ) throws Exception
+   {
+		out.println("Welcome to the Class Stats program!");
+		
+		Scanner file = new Scanner(new File("C:\\Users\\burnsc6389\\Documents\\GitHub\\APCSA-V2\\Unit11-2016\\Unit11-Assignments\\Lab19b\\gradebook.dat"));
+		String name = file.nextLine();
+		int numberofStudents = file.nextInt();file.nextLine();
+		Class tester = new Class(name, numberofStudents);
+		for (int i = 0; i<numberofStudents; i++)
+		{
+			String stuName = file.next();
+			String grades = file.nextLine();
+			Student test = new Student (stuName, grades);
+			tester.addStudent(i, test);
+		}
+		
+		out.println("Failure List = " + tester.getFailureList(70));	
+		out.println("Highest Average = " + tester.getStudentWithHighestAverage());
+		out.println("Lowest Average = " + tester.getStudentWithLowestAverage());
+	}		
+}
